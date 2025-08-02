@@ -29,8 +29,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploy step here'
+                bat 'node index.js'
             }
-        }
+       }
+
     }
 }
