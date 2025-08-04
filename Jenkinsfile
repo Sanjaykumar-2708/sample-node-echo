@@ -29,7 +29,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                bat 'node index.js'
+                bat 'start /B node index.js'
             }
        }
 
