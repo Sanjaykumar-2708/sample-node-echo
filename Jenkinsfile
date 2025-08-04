@@ -32,13 +32,16 @@ pipeline {
                 bat 'start /B node index.js'
             }
        }
-       stage('Docker Build & Run') {
+       stage('Build Docker Image') {
     steps {
-        bat 'docker stop mynodeapp || exit 0'
-        bat 'docker rm mynodeapp || exit 0'
         bat 'docker build -t mynodeapp .'
+    }
+}
+stage('Run Docker Container') {
+    steps {
         bat 'docker run -d -p 3000:3000 --name mynodeapp mynodeapp'
     }
 }
+
     }
 }
